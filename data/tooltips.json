@@ -1,0 +1,79 @@
+{  
+	"search_button_hi":"This is the beta version of the new fcc.gov search.<br/><br/>Each tab on the left is a public source of information available at FCC. Hover the mouse over a tab to see its description. In the first version of the new search, only www.fcc.gov content and commission documents would be available. These are the same sources that are currently searchable from fcc.gov. We will add more sources once every three months.<br/><br/>You can click on the 'Search' button without entering anything in the textbox. This will give you all the results in that source. You can then get to any document using the filters on the right. <br/><br/>We are actively soliciting feedback on search. Please post your comments and suggestions at <a href = \"http://fccdotgov.uservoice.com/forums/267011-fcc-gov-search-demo\" target = \"_blank\">http://fccdotgov.uservoice.com/forums/267011-fcc-gov-search-demo</a>.",
+        "tab_all":"Combined Commision Documents and Web Documents",
+	"tab_web":"www.fcc.content includes all the web pages you find under www.fcc.gov. It does not include other subdomains of FCC like transition.fcc.gov.",
+	
+	"tab_edocs":"Commission Documents (EDOCS) includes all the documents released by FCC from 1995 to the present. You can search for documents released till July 31, 2014. We will update this soon to be current.<br/><br/>Also, search includes only text documents - not PDF, Word or other formats.",
+	
+	"tab_ecfs":"Not available yet. We expect to include ECFS some time in early 2015. ",
+	"tab_uls":"Not available yet. We expect to include ULS some time in mid 2015.",
+	"tab_cdbs":"Not available yet. We expect to include CDBS some time in mid 2015.",
+	"tab_ecfr":"Not available yet. We expect to include e-CFR towards the end of 2015.",
+
+	"filters_header":"Expand each filter to see its description.<br/><br/>Filters included here are based on the search term you entered in the textbox.<br/><br/>When you select two filter values from different filters, search results would include documents that match both the filter values. But, when you select two filter values from the same filter, search results would include documents that match one or the other value.",
+
+	
+	"facethelp_FCC_Dockets":"FCC docket numbers cited in the document text",
+	"facethelp_FCC_Rules":"FCC rules cited in the document text",
+	"facethelp_FCC_Codes":"FCC statutes cited in the document text",
+	"facethelp_FCC_Records":"FCC records cited in the document text",
+	"facethelp_FCC_Forms":"FCC forms cited in the document text. All the FCC forms are described at <a href = \"http://www.fcc.gov/forms\" target = \"_blank\">http://www.fcc.gov/forms</a>.",
+	"facethelp_FCC_CaseCitations":"Case citations in the document text",
+	"facethelp_FCC_Dollars":"Dollar amounts in the document text",
+	"facethelp_FCC_Frequencies":"Spectrum frequencies in the document text",
+	"facethelp_FCC_CallSigns":"Call signs in the document text",
+		
+	"facethelp_authors": "Authors assigned to documents in our content repository",
+	"facethelp_topics": "Topics/Tags attached to documents by FCC",
+	"facethelp_taxonomies": "Taxonomies assigned to documents in our content repository",
+
+	"facethelp_created": "Date the document was first released",
+	"facethelp_lastChangedDate": "Date the document was last changed",
+	"facethelp_releasedDate": "Date the document was made available to the public.",
+	"facethelp_digestDate":"Date the document was published in the Daily Digest",
+	"facethelp_adoptedDate":"Date that a decision is made.<br/><br/>A decision may be adopted by the Commission at a meeting or by circulation among the Commissioners. Decisions may also be adopted by Bureau and Office Chiefs on delegated authority. The adopted decision usually is released some time after it is adopted.",
+	"facethelp_issuedDate":"This term pertains to the release of documents other than decisions; such as reports.",
+		
+	"facethelp_commentDate":"When the Commission or a Bureau issues a notice of proposed rulemaking (NPRM), it gives the public an opportunity to comment on it, before the issues are decided. The end of the comment period is stated when the NPRM is issued. Sometimes the Commission asks for public comments in other types of proceedings.",
+		
+	"facethelp_replyCommentDate":"After the initial comment period for each rulemaking proceeding, the public has an opportunity to review other comments filed in the proceedings, and submit responses, known as \"reply comments\". The deadline for reply comments is also stated when the NPRM is issued.",
+	
+	"facethelp_lastModifiedDate":"Date on which the document was last modified.",
+
+	"facethelp_documentCategory":"Category under which the document was published in the Daily Digest",
+		
+	"facethelp_federalRegisterCitation":"Federal register citations assigned to the document. All Federal Agencies publish summaries of Agency decisions and other notices in the Federal Register.<br/><br/>Federal Register citations take this format: 65 FR 1234, 1/2/2000. In this example, 65 is the volume, 1234 is the page number, and 1/2/2000 is the date on which the item was published in the Federal Register.", 
+	
+	"facethelp_fccNo":"FCC number assigned to the document.<br/><br/>Decisions are issued in two different ways: by the authority of the entire Commission, with each Commissioner voting; or by authority delegated to the Bureaus and Offices by the Commission. If the decision is one decided by the Commission, it is identified by an FCC number.<br/><br/>The FCC number is comprised of two digits indicating the year, and a number of up to 3 digits indicating the sequence. An example of an FCC number is: 99-123.", 
+	
+	"facethelp_daNo":"DA number assigned to the document.<br/><br/>The DA number is constructed similarly to an FCC number, with two initial digits indicating the year, and a number of up to 4 digits indicating the sequence.<br/><br/>An example of a DA number is: 99-1234.", 
+	
+	"facethelp_fccRecord":"FCC record assigned to the document.<br/><br/>The FCC Record is the publication in which decisions of the FCC are officially published. The citation for the FCC Record is 9 FCC 1234, where 9 is the volume number and 1234 is the page on which the decision begins.",     
+	
+	"facethelp_fileNumber":"File number assigned to the document.<br/><br/>Most Bureaus and Offices use internal numbers to track activities and issues. Often these file numbers appear on the document. The format of these numbers varies among Bureaus and Offices. ", 
+	
+	"facethelp_reportNumber":"Report number assigned to the document.<br/><br/>This is another Bureau-assigned number. Often, public notices which are issued on a regular schedule are assigned a sequential report number so that customers who follow a particular type of activity can easily ensure that they do not miss any of the reports. There is no standard format.", 
+	
+	"facethelp_dockets":"Docket number assigned to the document.<br/><br/>Many FCC actions are related to a specific policy initiative called 'a docketed proceeding'. The docket number is assigned when the proceeding first gets under way, and all subsequent documents related to that proceeding use the same docket number.<br/><br/>The form of a docket number is similar to FCC and DA numbers in that it is constructed with the first 2 digits indicating the year and 3 remaining digits which are assigned in sequence.", 
+		
+	"facethelp_bureaus":"FCC Bureau that created the document.<br/><br/>The FCC is divided into 15 Bureaus and Offices, and five Commissioner Offices. We have more filter values here as this list includes some of the older bureaus and offices that do not exist anymore.", 
+	
+	"facethelp_docTypes":"One or more document types assigned to the document.<br/><br/>Every FCC document that is released falls into a specific category. For example, news releases are statements summarizing decisions or activities that the Commission considers newsworthy. Decisional documents are issued as different types of opinions or orders, depending on the kind of decision that is issued.<br/><br/>Public notices contain information to inform the public promptly and succinctly about a wide variety of Commission actions. Public notice announcements often have legal precedence. For example, several bureaus issue weekly public notices containing lists of license actions taken. ",
+
+	"facethelp_Person":"People mentioned in documents. This is an experimental filter. Filter values you see would not always be people names.",
+	"facethelp_Company":"Company names mentioned in documents. This is an experimental filter. Filter values you see would not always be company names.",
+	"facethelp_City":"City names mentioned in the document text. This is an experimental filter. Filter values you see would not always be names of cities.",
+
+	
+	
+	"facetval_string1":"Since there are too many values for this filter, we do not show them all.<br/><br/>To add filter values you are interested in, start with the first character of the filter value, type a minimum of one character (case sensitive) and hit 'Enter'.",
+		
+	"facetval_id":"Since there are too many values for this filter, we do not show them all.<br/><br/>To add filter values you are interested in, type one or more full words in the filter value and hit 'Enter'. These words are case insensitive and they can occur anywhere in the filter value, but each word has to occur verbatim in the value.",
+	
+	"facetval_daterange":"You can filter on any date range.<br/><br/>Pick the start and end date from the date picker or type the range of dates directly in the format MM/DD/YYYY - MM/DD/YYYY and hit 'Enter'.",
+	
+	"facetval_FCC_Frequencies":"You can filter on any frequency. Type in a range of frequencies in the format 100Khz - 1Mhz (including the hyphen) and hit 'Enter'. This will filter on documents which contain frequencies between 100 Khz and 1Mhz.",
+	
+	"facetval_FCC_Dollars":"You can filter on any dollar amount. Type in a range of dollar amounts in the format 10K - 100M (including the hyphen) and hit 'Enter'. This will filter on documents that contain dollar amounts between $10,000 and $100,000,000."
+
+}

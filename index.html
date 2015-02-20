@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html ng-app="fcc_gov_search">
+    <head>
+        <title>FCC Search - Beta</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/css/bootstrap.min.css">
+        <link rel="stylesheet" href="styles/searchfcc.css" >	
+        <link rel="stylesheet" href="styles/styles.css" >
+
+        <script src="http://underscorejs.org/underscore.js"></script>
+        <script src="//code.jquery.com/jquery-1.11.2.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.1/js/bootstrap.min.js"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.11/angular.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-bootstrap/0.12.0/ui-bootstrap-tpls.js"></script>
+        <script type="text/javascript" src="http://fgnass.github.io/spin.js/spin.min.js"></script>
+        <script type="text/javascript" src="components/angular-spinner.js"></script>
+        <script src="scripts/services/services.js"></script>
+        <script src="scripts/directives/directives.js"></script>
+        <script src="scripts/controllers/controllers.js"></script>
+    </head>
+    <body>
+  <header>
+    <div class="row">
+      <div class="column-small-3 column-large-2">
+        <a href="http://www.fcc.gov"><img src="images/fcc-logo.png" style="float: left; width: 40px;" /></a>
+        <hgroup class="name" style="float: left;">
+          <h6 style="margin: 0 0 0 5px; line-height: 1;">Federal<br/>Communications<br/>Commission
+        </hgroup>
+      </div>
+      <div class="column-small-8">
+        <nav>
+          <a href="http://www.fcc.gov/leadership" title="Home">The FCC</a>
+          <a href="http://www.fcc.gov/what-we-do" title="About">Our Work</a>
+          <a href="http://www.fcc.gov/tools-data" title="For Broadcasters">Tools &amp; Data</a>
+          <a href="http://www.fcc.gov/business-licensing" title="Resources">Business &amp; Licensing</a>
+          <a href="http://www.fcc.gov/bureaus-offices" title="Resources">Bureaus &amp; Offices</a>
+        </nav>
+      </div>
+      <div class="column-small-12 column-large-2">
+        <form><input type="text" placeholder="Search" style="color: #111; width: 100%; font-size: 14px;"></form>
+      </div>
+    </div>
+  </header>
+    
+        <div ng-controller="fcc_gov_search_controller" ng-controller="modalInstanceController">
+  <div class="row">
+    <div class="column-large-12">
+      <form id="searchform">
+        <h3>FCC Search - Beta</h3>
+        <div class="searchbox" >
+          <input id="searchthis" type="search" size="50" ng-model="asyncSelected" placeholder="search..." typeahead="address for address in get_suggestions($viewValue)" typeahead-loading="loadingLocations" class="searchtextbox" ng-enter="searchBtn()"/>
+          <button class="btn search" type="button" id="search_b" ng-click="searchBtn()">Search</button>
+          <img id="search_button_hi" src="images/help3.png" class="helpimage search_tooltip" tooltip-placement="bottom" tooltip-html-unsafe="{{search_button_tooltip}}"/>
+          <div id="status" class="status"></div>
+        </div>
+      </form>
+    </div>
+  </div>
+    
+
+  <nav class="nav--search-filters">
+    <div class="row">
+      <div class="column-large-12">
+	<a class="tabname yesyet bg_web search_tooltip" ng-click="searchBtn('all')" id="tab_all" tooltip-placement="bottom" tooltip-html-unsafe="{{tab_all_tooltip}}"/>All</a>
+        <a class="tabname yesyet bg_web search_tooltip" ng-click="searchBtn('web')" id="tab_web" tooltip-placement="bottom" tooltip-html-unsafe="{{tab_web_tooltip}}"/>FCC.gov</a>
+        <a class="tabname yesyet bg_edocs search_tooltip" ng-click="searchBtn('edocs')" id="tab_edocs" tooltip-placement="bottom" tooltip-html-unsafe="{{tab_edocs_tooltip}}">EDOCS</a>
+      </div>
+    </div>
+  </nav>
+<!-- <div id="filters" class="filters" style="display: block;"><table><tbody><tr><td style="white-space:nowrap; width:100px; vertical-align:top;">Topics/Tags:</td><td style="width:400px"><span style="white-space:nowrap">Consumers<img onclick="removeFilter('topics', 'Consumers')" src="deleteselected.png" style="cursor: pointer;padding-left:2px;"></span></td></tr>
+</tbody></table></div>-->
+   
+<div class="row">
+    <div  ng-hide="search_spell">
+         <div class="column-large-9">       
+            <p ng-model="word"> Showing results for <a ng-click="get_results()">{{word}}</a></p>
+            <p>Search instead for <a ng-click="get_wrong_results()">{{asyncSelected}}</a></p>
+         </div>
+    </div>
+    <div ng-repeat="item in data">
+        <div ng-repeat="d in item.children" style="clear:both;" ng-show='hide_parent($parent.$index, $index)'>
+            {{d.name}}
+            <div ng-repeat="da in filtered = (d.children | filter:{selected:true})">
+               <div class="selected-item">
+                 {{da.name}}<img ng-click="toggleSelection($parent.$parent.$index, $parent.$index, $index, da.name )" src="images/deleteselected.png" style="cursor: pointer;padding-left:2px;">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+<div class="row" ng-hide="search_wrong_spell">
+     <div class="column-large-9">
+         <p >Did you mean <a ng-click="get_results()">{{word}}</a></p>
+     </div>
+</div>
+
+   <div class="column-large-3" ng-hide="search_facets">
+      <div id="filterresultcollapsed" class="filterresultcollapsed">
+          <div class="facettitle">
+              <span class="facettitleName">Filter results on:</span><img id="filters_header" src="images/help3.png" class="helpimage search_tooltip" tooltip-placement="bottom" tooltip-html-unsafe="{{filters_header_tooltip}}">
+          </div>
+          <br><br>
+          <div class="facetgroup">
+              <ul class="facetname">                
+                <li ng-repeat="item in data"><b>{{item.name}}</b>
+                    <ul>
+                        <li ng-repeat="child in item.children"><a ng-click="showDetails = ! showDetails">{{child.name}}</a><img id="facethelp_source_type" ng-show="showDetails" src="images/help3.png" class="helpimage search_tooltip" tooltip-placement="bottom" tooltip="{{dynamic_tooltip}}" ng-mouseover="show_tooltip($parent.$index, $index)">  
+                            <ul ng-show="showDetails"><li ng-repeat="gch in child.children"><input id="{{gch.name}}" type="checkbox"ng-checked="gch.selected" ng-click="toggleSelection($parent.$parent.$index, $parent.$index, $index, gch.name )" value="{{gch.name}}" />{{gch.name}}({{gch.count}})</li>
+                                <p class="input-group" ng-hide="hide_inputbox($parent.$index, $index)"><input type="text" class="form-control facettext" placeholder="{{theValue}}" /><img id="facethelp_source_type" src="images/help3.png" class="helpimage search_tooltip" tooltip-placement="bottom" tooltip-html-unsafe="{{inputbox_tooltip}}" ng-mouseover="show_tooltip_inputbox($parent.$index, $index)"> </p>
+                                 <p class="input-group" ng-hide="hide_datebox($parent.$index, $index)"><input type="text" class="form-control" datepicker-popup="{{format}}" ng-model="dt" is-open="opened" min-date="minDate" max-date="'2015-06-22'" datepicker-options="dateOptions" date-disabled="disabled(date, mode)" ng-required="true" close-text="Close" />
+                                    <span class="input-group-btn"><button type="button" class="btn btn-default" ng-click="open($event)"><i class="glyphicon glyphicon-calendar"></i></button></span>
+                                 </p>
+                            </ul>
+                        </li>
+                    </ul>
+                </li>
+              </ul>
+          </div>       
+      </div>
+      <div id="filterresult" class="filterresult"></div>
+    </div>
+  
+
+  <div class="row">
+    <div class="column-large-9">
+      <div id="filters" class="filters"></div>
+      <div id="searchresult" class="searchresult" ng-repeat="d in searches">
+          <div class="asearchresult">
+            <h4 class="asearchresult_title"><a href={{d.weburl}} target="_blank">{{d.title}} </a> - {{d.source_type}}</h4>
+            <div class="byline">{{d.date | isArray | date:'medium'}} - {{d.weburl}}</div><div class="asearchresult_blurb">{{d.blurb}}
+                 <nav class="nav--documents" ng-hide="search_docs"><strong>Documents: </strong>
+                     <a target="_blank" href="https://apps.fcc.gov/edocs_public/attachmatch/{{d.links[0]}}">Word</a>&nbsp;&nbsp;&nbsp;
+                     <a target="_blank" href="https://apps.fcc.gov/edocs_public/attachmatch/{{d.links[1]}}">PDF</a>&nbsp;&nbsp;&nbsp;
+                     <a target="_blank" href="https://apps.fcc.gov/edocs_public/attachmatch/{{d.links[2]}}">Text</a>&nbsp;&nbsp;&nbsp;
+                 </nav>           
+            </div>
+          </div>
+      </div>
+      <div id="searchresultnav" class="searchresultnav"></div>
+    </div>
+ 
+  </div>
+
+    
+
+<div class="row"  ng-hide="search_pagination">
+    <div class="column-large-9">
+        <pagination total-items="bigTotalItems" ng-model="bigCurrentPage" max-size="maxSize" class="pagination-sm" boundary-links="true" rotate="false" num-pages="numPages" ng-change="pageChanged()" ></pagination>
+        <pre>Page: {{bigCurrentPage}} / {{numPages}}</pre>
+    </div>
+</div>  
+
+     <span us-spinner="{radius:30, width:8, length: 16}" spinner-key="spinner-1"></span>
+   
+</div>  
+       
+
+    
+<footer>
+    <div class="row">
+      <div class="column-small-12 column-large-6">
+        <address>
+          Federal Communications Commission<br />
+          445 12th Street SW, Washington, DC 20554<br />
+          Phone: 1-888-225-5322<br />
+          TTY: 1-888-835-5322<br />
+          Fax: 1-866-418-0232<br />
+          <a href="#contact">Contact Us</a>
+        </address>
+      </div>
+      <div class="column-small-12 column-large-3">
+        <ul class="no-bullets">
+          <li><a href="/encyclopedia/privacy-policy" title="Privacy Policy">Privacy Policy</a></li>
+          <li><a href="/comment-policy" title="Moderation Policy">Moderation Policy</a></li>
+          <li><a href="/encyclopedia/website-notices" title="Website Policies &amp; Notices">Website Policies &amp; Notices</a></li>
+          <li><a href="/encyclopedia/required-plug-ins-players-and-readers" title="Required Browser &amp; Plug-ins">Required Browser &amp; Plug-ins</a></li>
+          <li><a href="/foia" title="FOIA">FOIA</a></li>
+          <li><a href="/encyclopedia/no-fear-act-data" title="No Fear Act Data">No Fear Act Data</a></li>
+        </ul>
+      </div>
+      <div class="column-small-12 column-large-3">
+        <ul class="no-bullets">
+          <li><a href="/digitalstrategy" title="FCC Digital Strategy">FCC Digital Strategy</a></li>
+          <li><a href="/open" title="Open Government Directive">Open Government Directive</a></li>
+          <li><a href="/encyclopedia/plain-writing-fcc" title="Plain Writing Act">Plain Writing Act</a></li>
+          <li><a href="/encyclopedia/american-recovery-and-reinvestment-act-2009" title="2009 Recovery and Reinvestment Act">2009 Recovery and Reinvestment Act</a></li>
+          <li><a href="/rss" title="RSS Feeds &amp; Email Updates">RSS Feeds &amp; Email Updates</a></li>
+          <li><a href="/encyclopedia/disability-rights-office" title="Disability Rights">Disability Rights</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>	 
+</body>
+</html>

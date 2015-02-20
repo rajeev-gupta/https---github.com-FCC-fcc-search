@@ -1,0 +1,54 @@
+{
+    "headers":[{
+                    "name":"Categories:", 
+                    "children":[{ "facet": "topics",
+                                "name":"Topics/Tags"},
+                              {"facet": "authors",
+                                "name":"Authors"
+                              },
+                              {"facet": "taxonomies",
+                                "name":"Taxonomies"
+                              }]
+                }, 
+                {
+                    "name":"Dates:",
+                    "children":[{"facet": "date",
+                                "name":"Released Dates"
+                              },
+                              {"facet": "changed",
+                                "name":"Last Changed Dates"
+                              }]
+                }, 
+                {   "name":"FCC Identities in Documents:",  
+                    "children":[{ "facet": "FCC_Rules",
+                                  "name":"FCC Rules"
+                                },
+                                {"facet": "FCC_Codes",
+                                  "name":"FCC Codes"
+                                },
+                                {"facet": "FCC_Records",
+                                  "name":"FCC Record Citations"
+                                },
+                                {"facet": "FCC_Forms",
+                                  "name":"FCC Forms"
+                                }]
+                },
+                {
+                    "name":"Other References in Documents:",
+                    "children":[{ "facet": "FCC_CaseCitations",
+                                  "name":"Case Citations"
+                                },
+                                { "facet": "FCC_Dollars",
+                                  "name":"Dollar Amounts"
+                                },
+                                { "facet": "FCC_Frequencies",
+                                  "name":"Frequency Bands"
+                                },
+                                { "facet": "FCC_CallSigns",
+                                  "name":"Call Signs"
+                                }]
+                }
+            ]
+}
+
+

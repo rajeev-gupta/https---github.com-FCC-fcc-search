@@ -1,0 +1,274 @@
+  
+.facetname  li{
+    list-style: none ;
+}
+
+.selected-items-panel
+{
+	margin-left: 25px;
+	/* margin-top: 17%; */
+	margin-right:10px;
+}
+.selected-item
+{
+	display:inline;
+	margin-right:10px;
+	font-size:16px;
+	color:black;
+        float:left;
+}
+
+#selected_category{
+    font-weight: bold;
+    margin-right: 15px;
+}
+
+.search_tooltip + .tooltip > .tooltip-inner {background-color: #d2ebfa; color:black;}
+.search_tooltip + .tooltip > .tooltip-arrow { border-bottom-color:#d2ebfa; }
+
+
+////////////////// Added above ///////////////////
+
+.searchresult {
+  }
+  
+  
+  .searchresultnav {
+    font-size: 14px;
+    color: rgba(0,0,0,.75);
+    margin-top: 30px;
+    padding: 30px 0;
+    border-top: 1px solid #ddd;
+    display: none;
+  }
+  
+  .searchtextbox {
+    /* padding:3px 6px; */
+    /* width:30%; */
+    /* border-radius: 2px; */
+    /* border: 1px solid; */
+  }
+  
+  .filters {
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+  
+  .asearchresult {
+    padding-top: 30px;
+  }
+  
+  .asearchresult_title {
+    font-weight: bold;
+    margin: 0;
+    font-size: 18px;
+  }
+  .byline {
+    font-size: 13px;
+    color: rgba(0,0,0,.5); 
+    font-weight: 700;
+  }
+  
+  .filterresult {
+    padding-top: 0px;
+    padding-left: 10px;
+    white-space: nowrap;
+  }
+  
+  .filterresultcollapsed {
+    padding-top: 0px;
+  }
+  
+  .afilterresult {
+    padding-top: 10px;
+  }
+  
+  .facetgroup {
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+  
+  .facettitle {
+    
+  }
+  
+  .facettitleName {
+    overflow: hidden;
+    white-space:nowrap; 
+    font-weight: bold;
+    
+  }
+  
+  .facetname {
+    text-decoration: underline;
+    cursor: pointer;
+  }
+  
+  .facetrresult {
+    padding-left: 10px;
+  }
+  
+  .helpimage {
+    vertical-align: baseline;
+    padding-left: 5px;
+}
+  
+  .nodisplay {
+    display: none;
+  }
+  
+  .title {
+    padding-left: 500px;
+    padding-top: 10px;
+    padding-bottom: 20px;
+    font-weight: bold;
+    font-size: 20px;
+  }
+  
+  .facettable {
+    overflow: auto;
+    padding-left: 20px;
+    font-size: 14px;
+  }
+  
+  .result_sh {
+  }
+  
+  .asearchresult_blurb {
+    font-size: 14px;
+    padding-top: 3px;
+  }
+  
+  .resulttable {
+    padding: 0px;
+    font-size: 14px;
+    overflow: auto;
+  }
+  
+  .cols {
+    float:left;
+    padding-top: 20px;
+  }
+  
+  .col1 {
+    float:left;
+        background-color: #e6e6e6;
+       border: 2px solid #a1a1a1;
+        border-radius: 10px;
+      
+  }
+  
+  .col2 {
+    float:left;
+    padding-left: 25px;
+    width:500px;
+  }
+  
+  .col3 {
+    float:right;
+    padding-left: 25px;
+    width: 100px;
+    white-space:nowrap;
+  }
+  
+  .tabname {
+    
+  }
+  
+  .yesyet {
+    cursor:pointer;
+  }
+  
+  .notyet {
+    opacity: 0.5;
+  }
+  
+  .remove_float {
+    float:clear;
+  }
+  
+  .searchbox {
+    font-weight: bold;
+    padding-left: 0px;
+  }
+  
+  .status {
+    font-weight: bold;
+    font-size: 12px;
+    padding-left: 5px;
+  }
+  
+  .hids {
+    margin: 0 15px;
+    cursor: pointer;
+    text-decoration: underline;
+    white-space:nowrap;
+    display: inline-block;
+  }
+  
+  .facettext {
+    border-radius: 3px;border: 1px solid;
+    font-size: 12px;
+    padding: 2px 2px;
+  
+    width: 90% !important;
+}
+  
+  .facetselect {
+    padding-top: 5px;
+    padding-bottom: 5px;
+    height: 10px;
+  }
+  
+  .topfacetselect {
+    height: auto;
+    
+  }
+  
+  .filterselecttop {
+    padding-bottom: 5px;
+  }
+  
+  .autosuggestid {
+    white-space: nowrap;
+  }
+  
+  .autosuggestitem {
+      padding-top: 2px;
+      padding-bottom: 2px;
+      padding-left: 0px;
+      padding-right: 0px;
+      margin: 0px;
+      cursor: pointer;
+      white-space: nowrap;
+  }
+
+  .oddstyle {
+    background: #FFF;
+  }
+  
+  .evenstyle {
+    background: #00FFFF;
+  }
+  
+  
+  .searchinput {
+    width: 200px;
+}
+
+.searchclear {
+    position:absolute;
+    right:5px;
+    top:0;
+    bottom:0;
+    height:14px;
+    margin:auto;
+    font-size:14px;
+    cursor:pointer;
+    color:#ccc;
+}
+
+.pressed{
+    color: #337ab7 !important;
+}
+
